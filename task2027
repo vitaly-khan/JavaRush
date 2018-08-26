@@ -38,9 +38,9 @@ same - (1, 1) - (4, 1)
                         List<Integer> deltaX = new ArrayList<>(Arrays.asList(-1, 0, 1));
                         List<Integer> deltaY = new ArrayList<>(Arrays.asList(-1, 0, 1));
                         
-                        if (j - (word.length() - 1) < 0) deltaX.remove(0); // word cannot be directed to the left
+                        if (j - (word.length() - 1) < 0) deltaX.remove((Integer) (-1)); // word cannot be directed to the left
                         if (j + word.length() > crossword[i].length) deltaX.remove((Integer) 1); // word cannot be directed to the right
-                        if (i - (word.length() - 1) < 0) deltaY.remove(0); // word cannot be directed upward;
+                        if (i - (word.length() - 1) < 0) deltaY.remove((Integer) (-1)); // word cannot be directed upward;
                         if (i + word.length() > crossword.length) deltaY.remove((Integer) 1); // word cannot be directed downward;
 
                         //Checking for the rest of the word in all possible directions until a letter doesn't match.
@@ -50,7 +50,7 @@ same - (1, 1) - (4, 1)
                                 for (k = 1; k < word.length(); k++)
                                     if (crossword[i + dY * k][j + dX * k] != word.charAt(k)) break;
                                     
-                                // If k equals length of word, it means it was no break in the loop and full match (word) was found!
+                                // If k equals length of the word, it means it's been no break in the loop and full match (word) has been found!
                                 if (k == word.length()) {
                                     Word foundWord = new Word(word);
                                     foundWord.setStartPoint(j, i);
