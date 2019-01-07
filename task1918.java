@@ -24,7 +24,7 @@ public class Solution {
         while (br.ready())
             sb.append(br.readLine());                       //StringBuilder object includes all chars in the given file.
         br.close();
-    //A key stores the beginning index, a value stores the ending index or -1 when the ending index hasn't been found.
+    //A key stores the beginning index, a value stores the ending index or null when the ending index hasn't been found.
         Map <Integer, Integer> tagIndices = new TreeMap<>();
         final String fileString = sb.toString().replaceAll("[\\n\\r]", "");
         Matcher m = Pattern.compile("(<\\s*/?\\s*" + args[0] + ".*?>)").matcher(fileString);
