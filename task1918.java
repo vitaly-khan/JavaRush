@@ -28,7 +28,7 @@ public class Solution {
         Map <Integer, Integer> tagIndices = new TreeMap<>();
         final String fileString = sb.toString().replaceAll("[\\n\\r]", "");
         Matcher m = Pattern.compile("(<\\s*/?\\s*" + args[0] + ".*?>)").matcher(fileString);
-        while (m.find()){ //if an opening OR closing tag has been found we go inside while loop
+        while (m.find()){ //if an opening OR closing tag has been found, we go inside while loop
             if (m.group().matches("<\\s*" + args[0] + ".*?>")) //if found group is an opening tag then
                 tagIndices.put(m.start(), null);                 //we create new pair: {found index, null}
             else {                                               // if found group is a closing tag then
