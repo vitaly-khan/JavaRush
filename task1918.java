@@ -15,7 +15,7 @@ import java.util.regex.Pattern;
 
 public class Solution {
     public static void main(String[] args) throws IOException {
-        args = new String[]{"a"};
+        //args[0] = "span"; // used for testing
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         FileReader fr = new FileReader(br.readLine());
         br.close();
@@ -26,7 +26,7 @@ public class Solution {
         br.close();
     //A key stores the beginning index, a value stores the ending index or null when the ending index hasn't been found.
         Map <Integer, Integer> tagIndices = new TreeMap<>();
-        final String fileString = sb.toString().replaceAll("[\\n\\r]", "");
+        //final String fileString = sb.toString().replaceAll("[\\n\\r]", ""); this line is redundant. readLine (line 25) does all this work!
         Matcher m = Pattern.compile("(<\\s*/?\\s*" + args[0] + ".*?>)").matcher(fileString);
         while (m.find()){ //if an opening OR closing tag has been found, we go inside while loop
             if (m.group().matches("<\\s*" + args[0] + ".*?>")) //if found group is an opening tag then
